@@ -37,7 +37,7 @@ const excluded = computed(() => [
           v-for="[key, value] of entry"
           :key="key"
           class="bg-red-500/10"
-          @click="model.tags.include.delete(key)"
+          @click="model.tags.exclude.delete(key)"
         >
           {{ $t(value.name) }}
         </SearchSelectedEntry>
