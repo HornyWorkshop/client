@@ -6,9 +6,9 @@ definePageMeta({ layout: "library" });
 const route = useRoute();
 
 const model = reactive({
-  tags: { exclude: [{ id: 1, name: "test 1" }], include: [{ id: 2, name: "test 2" }] },
-  authors: { exclude: [], include: [] },
-  franchises: { exclude: [], include: [] },
+  tags: { exclude: new Map(), include: new Map() },
+  authors: { exclude: new Map(), include: new Map() },
+  franchises: { exclude: new Map(), include: new Map() },
   value: "",
 } as UserSearchModel);
 

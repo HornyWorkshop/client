@@ -2,6 +2,18 @@
 import { UserSearchModel } from "./user-bar.vue";
 
 const model = defineModel<UserSearchModel>({ required: true });
+
+const included = computed(() => [
+  model.value.tags.include,
+  model.value.authors.include,
+  model.value.franchises.include,
+]);
+
+const excluded = computed(() => [
+  model.value.tags.exclude,
+  model.value.authors.exclude,
+  model.value.franchises.exclude,
+]);
 </script>
 
 <template>
@@ -9,21 +21,27 @@ const model = defineModel<UserSearchModel>({ required: true });
     <h1 class="text-center font-bold">Selected</h1>
 
     <section class="flex flex-wrap gap-2 p-2">
-      <span
-        v-for="{ id, name } of [...model.tags.include, ...model.authors.include, ...model.franchises.include]"
-        :key="id"
-        class="rounded bg-green-500/10 px-2"
-      >
-        {{ $t(name) }}
-      </span>
+      <template v-for="entry of included">
+        <SearchSelectedEntry
+          v-for="[key, value] of entry"
+          :key="key"
+          class="bg-green-500/10"
+          @click="model.tags.include.delete(key)"
+        >
+          {{ $t(value.name) }}
+        </SearchSelectedEntry>
+      </template>
 
-      <span
-        v-for="{ id, name } of [...model.tags.exclude, ...model.authors.exclude, ...model.franchises.exclude]"
-        :key="id"
-        class="rounded bg-red-500/10 px-2"
-      >
-        {{ $t(name) }}
-      </span>
+      <template v-for="entry of excluded">
+        <SearchSelectedEntry
+          v-for="[key, value] of entry"
+          :key="key"
+          class="bg-red-500/10"
+          @click="model.tags.include.delete(key)"
+        >
+          {{ $t(value.name) }}
+        </SearchSelectedEntry>
+      </template>
     </section>
   </section>
 </template>

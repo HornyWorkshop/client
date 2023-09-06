@@ -1,16 +1,18 @@
 <script lang="ts">
+type Entries = Map<number, { id: number; name: string }>;
+
 export type UserSearchModel = {
   tags: {
-    exclude: { id: number; name: string }[];
-    include: { id: number; name: string }[];
+    exclude: Entries;
+    include: Entries;
   };
   authors: {
-    exclude: { id: number; name: string }[];
-    include: { id: number; name: string }[];
+    exclude: Entries;
+    include: Entries;
   };
   franchises: {
-    exclude: { id: number; name: string }[];
-    include: { id: number; name: string }[];
+    exclude: Entries;
+    include: Entries;
   };
   value: string;
 };
