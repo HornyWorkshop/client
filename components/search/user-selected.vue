@@ -36,6 +36,7 @@ const added = computed(() => {
           v-for="[key, value] of entry"
           :key="key"
           :icon="icon"
+          state="add"
           class="bg-green-500/10"
           @click="model.tags.include.delete(key)"
         >
@@ -48,6 +49,7 @@ const added = computed(() => {
           v-for="[key, value] of entry"
           :key="key"
           :icon="icon"
+          state="ban"
           class="bg-red-500/10"
           @click="model.tags.exclude.delete(key)"
         >
