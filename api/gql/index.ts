@@ -444,17 +444,22 @@ export interface PageInfo {
 export interface PersonModel {
   readonly cards: ReadonlyArray<CardModel>;
   readonly id: Scalars['Int']['output'];
+  readonly name: LocaleModel;
+  readonly scenes: ReadonlyArray<SceneModel>;
 }
 
 export interface PersonModelFilterInput {
   readonly and?: InputMaybe<ReadonlyArray<PersonModelFilterInput>>;
   readonly cards?: InputMaybe<ListFilterInputTypeOfCardModelFilterInput>;
   readonly id?: InputMaybe<IntOperationFilterInput>;
+  readonly name?: InputMaybe<LocaleModelFilterInput>;
   readonly or?: InputMaybe<ReadonlyArray<PersonModelFilterInput>>;
+  readonly scenes?: InputMaybe<ListFilterInputTypeOfSceneModelFilterInput>;
 }
 
 export interface PersonModelSortInput {
   readonly id?: InputMaybe<SortEnumType>;
+  readonly name?: InputMaybe<LocaleModelSortInput>;
 }
 
 /** A connection to a list of items. */

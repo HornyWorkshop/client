@@ -32,6 +32,6 @@ const model = defineModel<UserSearchModel>({ required: true });
       />
     </div>
 
-    <SearchUserSelected v-model="model" class="pt-2" />
+    <SearchUserSelected v-model="model" />
   </form>
 </template>
