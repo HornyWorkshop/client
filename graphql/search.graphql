@@ -1,0 +1,40 @@
+query searchFranchises($value: String!) {
+  franchises(where: { name: { or: [{ en: { contains: $value } }, { ru: { contains: $value } }] } }) {
+    edges {
+      node {
+        id
+        name {
+          id
+          en
+          ru
+        }
+      }
+    }
+  }
+}
+
+query searchTags($value: String!) {
+  tags(where: { name: { or: [{ en: { contains: $value } }, { ru: { contains: $value } }] } }) {
+    edges {
+      node {
+        id
+        name {
+          id
+          en
+          ru
+        }
+      }
+    }
+  }
+}
+
+query searchAuthors($value: String!) {
+  authors(where: { name: { contains: $value } }) {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}

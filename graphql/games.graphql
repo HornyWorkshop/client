@@ -1,0 +1,10 @@
+query games {
+    games {
+        id
+        name {
+            en
+            ru
+        }
+        features
+    }
+}

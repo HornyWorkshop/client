@@ -1,0 +1,23 @@
+query cards {
+  cards {
+    nodes {
+      id
+      name {
+        en
+      }
+      author {
+        name
+      }
+      tags {
+        id
+        name {
+          en
+        }
+      }
+      versions {
+        id
+        cover
+      }
+    }
+  }
+}

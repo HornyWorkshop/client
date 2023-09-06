@@ -1,0 +1,41 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "tauri",
+			"type": "lldb",
+			"request": "launch",
+			"program": "cargo",
+			"args": ["run", "--manifest-path=./src-tauri/Cargo.toml", "--no-default-features"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"name": "ui",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm dev"
+		},
+		{
+			"name": "graphql",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm gql:watch"
+		},
+		{
+			"name": "devtools",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm devtools"
+		}
+	],
+
+	"compounds": [
+		{
+			"name": "Let me in",
+			"configurations": ["tauri", "ui", "devtools", "graphql"]
+		}
+	]
+}
