@@ -16,7 +16,7 @@ const excluded = computed(() => [
 ]);
 
 const added = computed(() => {
-  for (const item of [...included.value, ...excluded.value]) {
+  for (const item of [included.value, excluded.value].flat()) {
     if (item.entry.size !== 0) {
       return true;
     }
@@ -28,7 +28,7 @@ const added = computed(() => {
 
 <template>
   <section class="flex flex-col gap-2 rounded bg-white/5 p-2">
-    <h1 class="text-center font-bold">Selected</h1>
+    <h1 class="text-center font-bold">{{ $t("pages.library.choise") }}</h1>
 
     <section class="flex flex-wrap gap-2" :class="{ hidden: added === false }">
       <template v-for="{ icon, entry } of included">
@@ -40,7 +40,8 @@ const added = computed(() => {
           class="bg-green-500/10"
           @click="model.tags.include.delete(key)"
         >
-          {{ $t(value.name) }}
+          <!-- {{ $t(value) }} -->
+          {{ value }}
         </SearchSelectedEntry>
       </template>
 
@@ -53,7 +54,8 @@ const added = computed(() => {
           class="bg-red-500/10"
           @click="model.tags.exclude.delete(key)"
         >
-          {{ $t(value.name) }}
+          <!-- {{ $t(value) }} -->
+          {{ key }} x {{ value }}
         </SearchSelectedEntry>
       </template>
     </section>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-type Props = { icon: "tags" | "authors"; state: "add" | "ban" };
+type Props = { icon: string; state: "add" | "ban" };
 defineProps<Props>();
 </script>
 
@@ -11,8 +11,8 @@ defineProps<Props>();
     </template>
 
     <template v-else-if="icon === 'authors'">
-      <Icon v-if="state == 'add'" name="material-symbols:person-off-outline" />
-      <Icon v-else name="material-symbols:person-2-outline" />
+      <Icon v-if="state == 'add'" name="material-symbols:person-2-outline" />
+      <Icon v-else name="material-symbols:person-off-outline" />
     </template>
     <slot />
   </button>

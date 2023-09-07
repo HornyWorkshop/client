@@ -19,4 +19,10 @@ export const en = {
     authors: "Authors",
     franchises: "Franchises",
   },
+  pages: {
+    library: {
+      help: "Pick category in the sidebar",
+      choise: "You're choise",
+    },
+  },
 };

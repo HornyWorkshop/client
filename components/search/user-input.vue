@@ -10,5 +10,6 @@ const model = defineModel<UserSearchModel>({ required: true });
     type="text"
     class="w-full rounded bg-white/5 px-4 py-2 outline-none"
     :placeholder="$t('placeholders.search')"
+    @keydown.esc="($event.target as HTMLInputElement).blur()"
   />
 </template>

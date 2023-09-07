@@ -7,9 +7,9 @@ import type { UserSearchModel } from "./user-bar.vue";
 const model = defineModel<UserSearchModel>({ required: true });
 const request = computed(() => ({ value: model.value.value }));
 
-const { result: tagsResult } = useSearchTagsQuery(request);
+const { result } = useSearchTagsQuery(request);
 const tags = computed(() => {
-  let values = tagsResult.value?.tags?.edges ?? [];
+  let values = result.value?.tags?.edges ?? [];
 
   values = values.filter(({ node }) => model.value.tags.include.has(node.id) === false);
   values = values.filter(({ node }) => model.value.tags.exclude.has(node.id) === false);
@@ -30,9 +30,9 @@ watch(tags, (values) => {
 
 <template>
   <SearchSuggEntries
-    :values="tags.map(({ node }) => ({ id: node.id, name: `tags.${node.id}` }))"
-    @add="(id, name) => model.tags.include.set(id, { id, name })"
-    @ban="(id, name) => model.tags.exclude.set(id, { id, name })"
+    :values="tags.map(({ node }) => ({ id: node.id, name: $t(`tags.${node.id}`) }))"
+    @add="(id, name) => model.tags.include.set(id, name)"
+    @ban="(id, name) => model.tags.exclude.set(id, name)"
   >
     {{ $t("search.tags") }}
   </SearchSuggEntries>

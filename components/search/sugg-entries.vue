@@ -20,21 +20,13 @@ defineEmits<Emits>();
 
     <div class="flex max-h-48 flex-col gap-2 overflow-auto">
       <div v-for="{ id, name } of values" :key="id" class="flex items-center gap-2">
-        <button
-          type="button"
-          class="rounded bg-green-900/50 px-2 py-1 hover:opacity-50"
-          @click="$emit('add', id, `tags.${id}`)"
-        >
+        <button type="button" class="rounded bg-green-900/50 px-2 py-1 hover:opacity-50" @click="$emit('add', id)">
           add
         </button>
         <span class="w-full truncate">
-          {{ name }}
+          {{ $t(name) }}
         </span>
-        <button
-          type="button"
-          class="rounded bg-red-900/50 px-2 py-1 hover:opacity-50"
-          @click="$emit('ban', id, `tags.${id}`)"
-        >
+        <button type="button" class="rounded bg-red-900/50 px-2 py-1 hover:opacity-50" @click="$emit('ban', id)">
           ban
         </button>
       </div>

@@ -4,7 +4,7 @@ export default defineI18nConfig(() => ({
   legacy: false,
   locale: "en",
   fallbackLocale: "en",
-  silentFallbackWarn: import.meta.dev,
-  silentTranslationWarn: import.meta.dev,
-  messages
+  silentFallbackWarn: true,
+  silentTranslationWarn: true,
+  messages,
 }));

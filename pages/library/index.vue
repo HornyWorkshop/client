@@ -3,5 +3,7 @@ definePageMeta({ layout: "library" });
 </script>
 
 <template>
-  <section>library page</section>
+  <section>
+    <h1>{{ $t("pages.library.help") }}</h1>
+  </section>
 </template>
