@@ -4,15 +4,15 @@ import { UserSearchModel } from "./bar.vue";
 const model = defineModel<UserSearchModel>({ required: true });
 
 const included = computed(() => [
-  { icon: "tags", entry: model.value.tags.include },
-  { icon: "authors", entry: model.value.authors.include },
-  { icon: "franchises", entry: model.value.franchises.include },
+  { token: "tags", entry: model.value.tags.include },
+  { token: "authors", entry: model.value.authors.include },
+  { token: "franchises", entry: model.value.franchises.include },
 ]);
 
 const excluded = computed(() => [
-  { icon: "tags", entry: model.value.tags.exclude },
-  { icon: "authors", entry: model.value.authors.exclude },
-  { icon: "franchises", entry: model.value.franchises.exclude },
+  { token: "tags", entry: model.value.tags.exclude },
+  { token: "authors", entry: model.value.authors.exclude },
+  { token: "franchises", entry: model.value.franchises.exclude },
 ]);
 
 const added = computed(() => {
@@ -31,27 +31,27 @@ const added = computed(() => {
     <h1 class="text-center font-bold">{{ $t("pages.library.choise") }}</h1>
 
     <section class="flex flex-wrap gap-2" :class="{ hidden: added === false }">
-      <template v-for="{ icon, entry } of included">
+      <template v-for="{ token, entry } of included" :key="token">
         <SearchSelectedEntry
           v-for="[key, value] of entry"
           :key="key"
-          :icon="icon"
+          :icon="token"
           state="add"
           class="rounded bg-green-500/50"
-          @click="model.tags.include.delete(key)"
+          @click="entry.delete(key)"
         >
           {{ $t(value) }}
         </SearchSelectedEntry>
       </template>
 
-      <template v-for="{ icon, entry } of excluded">
+      <template v-for="{ token, entry } of excluded" :key="token">
         <SearchSelectedEntry
           v-for="[key, value] of entry"
           :key="key"
-          :icon="icon"
+          :icon="token"
           state="ban"
           class="rounded bg-red-500/50 px-2"
-          @click="model.tags.exclude.delete(key)"
+          @click="entry.delete(key)"
         >
           {{ $t(value) }}
         </SearchSelectedEntry>

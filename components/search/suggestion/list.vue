@@ -10,9 +10,6 @@ type Remote = {
 type Props = {
   token: string;
   remote: Remote[];
-
-  // exclude: Map<number | string, string>;
-  // include: Map<number | string, string>;
 };
 
 type Model = {
@@ -70,8 +67,6 @@ watch(values, (values) => {
           {{ $t("search.ban") }}
         </button>
       </template>
-
-      <!-- <slot :values="values" /> -->
     </section>
   </section>
 </template>

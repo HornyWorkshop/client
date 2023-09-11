@@ -4,7 +4,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <button class="flex flex-row items-center gap-2 rounded px-2 hover:opacity-50">
+  <button type="button" class="flex flex-row items-center gap-2 rounded px-2 hover:opacity-50">
     <template v-if="icon === 'tags'">
       <Icon v-if="state == 'add'" name="material-symbols:label-outline" />
       <Icon v-else name="material-symbols:label-off-outline" />
