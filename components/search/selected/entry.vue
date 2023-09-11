@@ -14,6 +14,12 @@ defineProps<Props>();
       <Icon v-if="state == 'add'" name="material-symbols:person-2-outline" />
       <Icon v-else name="material-symbols:person-off-outline" />
     </template>
+
+    <template v-else-if="icon === 'franchises'">
+      <Icon v-if="state == 'add'" name="material-symbols:subtitles-outline" />
+      <Icon v-else name="material-symbols:subtitles-off-outline" />
+    </template>
+
     <slot />
   </button>
 </template>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { UserSearchModel } from "./user-bar.vue";
+import { UserSearchModel } from "./bar.vue";
 
 const model = defineModel<UserSearchModel>({ required: true });
 
@@ -27,7 +27,7 @@ const added = computed(() => {
 </script>
 
 <template>
-  <section class="flex flex-col gap-2 rounded bg-white/5 p-2">
+  <section class="flex flex-col gap-2 rounded bg-gray-800 p-2">
     <h1 class="text-center font-bold">{{ $t("pages.library.choise") }}</h1>
 
     <section class="flex flex-wrap gap-2" :class="{ hidden: added === false }">
@@ -37,11 +37,10 @@ const added = computed(() => {
           :key="key"
           :icon="icon"
           state="add"
-          class="bg-green-500/10"
+          class="rounded bg-green-500/50"
           @click="model.tags.include.delete(key)"
         >
-          <!-- {{ $t(value) }} -->
-          {{ value }}
+          {{ $t(value) }}
         </SearchSelectedEntry>
       </template>
 
@@ -51,11 +50,10 @@ const added = computed(() => {
           :key="key"
           :icon="icon"
           state="ban"
-          class="bg-red-500/10"
+          class="rounded bg-red-500/50 px-2"
           @click="model.tags.exclude.delete(key)"
         >
-          <!-- {{ $t(value) }} -->
-          {{ key }} x {{ value }}
+          {{ $t(value) }}
         </SearchSelectedEntry>
       </template>
     </section>

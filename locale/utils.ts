@@ -1,7 +1,7 @@
 import { LocaleModel } from "~/api/gql";
 
 export function mergeLocale(
-  id: number,
+  id: number | string,
   token: string,
   values: Omit<LocaleModel, "id">,
   callable: (locale: string, token: string, value: string) => void,

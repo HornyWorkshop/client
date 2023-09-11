@@ -1,5 +1,5 @@
 <script lang="ts">
-export type Entry = Map<number, string>;
+export type Entry = Map<number | string, string /** locale path */>;
 
 export type Entries = {
   exclude: Entry;
@@ -21,11 +21,12 @@ const model = defineModel<UserSearchModel>({ required: true });
 <template>
   <form class="flex flex-col gap-2">
     <div class="relative">
-      <SearchUserInput v-model="model" class="peer" />
+      <SearchInput v-model="model" class="peer" />
+
       <div class="invisible absolute top-full w-full pt-2 hover:visible peer-focus-within:visible">
-        <div class="flex flex-col gap-2 rounded bg-white/5 p-2 shadow backdrop-blur">
-          <SearchUserSelected v-model="model" class="shadow" />
-          <SearchUserSuggs v-model="model" class="shadow" />
+        <div class="flex flex-col gap-2 rounded bg-gray-700 p-2 shadow">
+          <SearchSelected v-model="model" class="shadow" />
+          <SearchSuggestions v-model="model" />
         </div>
       </div>
     </div>

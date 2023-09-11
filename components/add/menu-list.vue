@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col content-start items-start justify-start gap-2 rounded bg-white/5 px-4 py-2">
+  <section class="flex flex-col content-start items-start justify-start gap-2 rounded bg-gray-800 px-4 py-2">
     <NuxtLink to="/add/game">{{ $t("game") }}</NuxtLink>
     <NuxtLink to="/add/card">{{ $t("card") }}</NuxtLink>
     <NuxtLink to="/add/scene">{{ $t("scene") }}</NuxtLink>

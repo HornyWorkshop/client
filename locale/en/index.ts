@@ -18,6 +18,8 @@ export const en = {
     tags: "Tags",
     authors: "Authors",
     franchises: "Franchises",
+    add: "add",
+    ban: "ban",
   },
   pages: {
     library: {
