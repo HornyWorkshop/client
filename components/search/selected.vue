@@ -27,10 +27,8 @@ const added = computed(() => {
 </script>
 
 <template>
-  <section class="flex flex-col gap-2 rounded bg-gray-800 p-2">
-    <h1 class="text-center font-bold">{{ $t("pages.library.choise") }}</h1>
-
-    <section class="flex flex-wrap gap-2" :class="{ hidden: added === false }">
+  <section class="flex flex-col gap-2 rounded bg-gray-800 p-2" :class="{ hidden: added === false }">
+    <section class="flex flex-wrap gap-2">
       <template v-for="{ token, entry } of included" :key="token">
         <SearchSelectedEntry
           v-for="[key, value] of entry"
